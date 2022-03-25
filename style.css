@@ -1,0 +1,224 @@
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+html, body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+body {
+	padding: 2rem 0 0;
+	font-family: "Roboto", Helvetica, sans-serif;
+	background: red;
+	overflow-y: auto;
+}
+body.no-scroll { overflow: hidden }
+
+#overlay {
+	position: fixed;
+	top: 50%; left: 50%;
+	width: 80%;
+	height: 85%;
+	transform: translate(-50%,-50%);
+	display: none;
+	z-index: +1;
+}
+#overlay:before {
+	position: fixed;
+	top: 50%; left: 50%;
+	width: 100vw;
+	height: 100vh;
+	content: '';
+	transform: translate(-50%,-50%);
+	background: rgba(255,0,0,0.65);
+}
+#overlay .header {
+	position: absolute;
+	top: 0; left: 0; right: 0;
+	height: 2 rem;
+	padding: 0 1rem;
+	font-size: 1.5rem;
+	color: black;
+}
+#overlay .header .close { float: right; cursor: pointer; font-family: "Nimbus Roman No9 L", Times, serif;}
+#overlay .header .title { float: left margin-left: 1rem;}
+
+#overlay .content {
+	position: absolute;
+	top: 2.5rem; left: 0;
+	bottom: 0; right: 0;
+  padding: 2rem;
+	background: #ccc;
+	overflow: hidden;
+	overflow-y: auto;
+	display: inline-block;
+	border-radius: 1rem;
+	z-index: +1;
+}
+
+.nav-bars{
+  position: fixed;
+  width: 100%;
+  height: 2rem;
+  z-index: 99999;
+  background-color: black;
+  color: white;
+  font-family: "Nimbus Roman No9 L", Times, serif;
+  justify-content: center;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+}
+.bar-duplicates{
+  position: relative;
+  width: 100%;
+  height: 2rem;
+  z-index: 99999;
+  /* background-color: black; */
+  color: white;
+  font-family: sans-serif;
+  /* text-align: center; */
+  font-size: 1.6rem;
+}
+.bar-top{
+  top:0;
+}
+.bar-bottom{
+  bottom:0;
+}
+.main-container{
+  width: 100%;
+  background: red;
+}
+
+.rows{
+  height: 30vh;
+  /* background: blue; */
+  /* margin-bottom: 1rem; */
+  overflow: hidden;ßß
+  white-space: nowrap;
+  vertical-align:text-bottom;
+}
+
+.imgs{
+  height: 100%;
+  width: 25%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+img{
+  width: 100%;
+  border-radius: 2rem;
+}
+
+.imgs{
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+}
+
+.marquee {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 52s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+body:before {
+	position: fixed;
+	top: 0; left: 0; right: 0;
+	height: 1rem;
+	content: '';
+	background: red;
+	z-index: +2;
+}
+body:after {
+	position: fixed;
+	bottom: 0; left: 0; right: 0;
+	height: 1rem;
+	content: '';
+	background: red;
+	z-index: +2;
+}
+
+p {
+	font-family: "Nimbus Sans L", Helvetica, sans-serif;
+	margin-bottom: 2rem;
+	letter-spacing: -0.1rem;
+	font-size: 2.5rem;
+}
+
+.content {
+	justify-content: center;
+}
+
+.index {
+	font-family: "Nimbus Roman No9 L", Times, serif;
+	color: red;
+	letter-spacing: -0.1rem;
+	font-size: 2rem;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+}
+
+.prev {
+	font-family: "Nimbus Roman No9 L", Times, serif;
+	letter-spacing: -0.05rem;
+	font-size: 2rem;
+	float: left;
+}
+
+.next {
+	font-family: "Nimbus Roman No9 L", Times, serif;
+	letter-spacing: -0.05rem;
+	font-size: 2rem;
+	float: right;
+}
+
+.title {
+	font-family: "Nimbus Roman No9 L", Times, serif;
+	letter-spacing: -0.05rem;
+	font-size: 2rem;
+	margin-left: 1rem;
+}
+
+.close {
+	font-family: "Nimbus Roman No9 L", Times, serif;
+	font-size: 2rem;
+	margin-right: 1rem;
+}
+
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 1.5rem;
+}
