@@ -1,4 +1,16 @@
+/* FONTS */
+@font-face{font-family:'Nimbus Roman No9 L Medium';src:url('./fonts/Nimbus Roman No9 L Medium.otf')}
+@font-face{font-family:'Nimbus Roman No9 L Medium Italics';src:url('./fonts/Nimbus Roman No9 L Medium Italics.otf')}
+@font-face{font-family:'Nimbus Roman No9 L Regular Italics';src:url('./fonts/Nimbus Roman No9 L Regular Italics.otf')}
+@font-face{font-family:'Nimbus Roman No9 L Regular';src:url('./fonts/Nimbus Roman No9 L Regular.otf')}
+@font-face{font-family:'Nimbus Sans L Bold';src:url('./fonts/Nimbus Sans L Bold')}
+@font-face{font-family:'Nimbus Sans L Bold Italics';src:url('./fonts/Nimbus Sans L Bold Italics')}
+@font-face{font-family:'Nimbus Sans L Regular Italics';src:url('./fonts/Nimbus Sans L Regular Italics')}
+@font-face{font-family:'Nimbus Sans L Regular';src:url('./fonts/Nimbus Sans L Regular')}
 
+
+
+/* GENERAL STYLING */
 * {
 	padding: 0;
 	margin: 0;
@@ -12,101 +24,107 @@ html, body{
 	height: 100%;
 	margin: 0;
 	padding:0;
-	box-sizing: border-box;
 }
 
-body {
-	padding: 2rem 0 0;
-	font-family: "Roboto", Helvetica, sans-serif;
-	background: red;
-	overflow-y: auto;
-}
-body.no-scroll { overflow: hidden }
+	body {
+		background: red;
+		box-sizing: border-box;
+		overflow-y: auto;
+	}
+	body.no-scroll { overflow: hidden }
+	body:before {
+		position: fixed;
+		top: 0; left: 0; right: 0;
+		height: 1rem;
+		content: '';
+		background: red;
+		z-index: +2;
+	}
+	body:after {
+		position: fixed;
+		bottom: 0; left: 0; right: 0;
+		height: 1rem;
+		content: '';
+		background: red;
+		z-index: +2;
+	}
 
-#overlay {
-	position: fixed;
-	top: 50%; left: 50%;
-	width: 80%;
-	height: 85%;
-	transform: translate(-50%,-50%);
-	display: none;
-	z-index: +1;
-}
-#overlay:before {
-	position: fixed;
-	top: 50%; left: 50%;
-	width: 100vw;
-	height: 100vh;
-	content: '';
-	transform: translate(-50%,-50%);
-	background: rgba(255,0,0,0.65);
-}
-#overlay .header {
-	position: absolute;
-	top: 0; left: 0; right: 0;
-	height: 2 rem;
-	padding: 0 1rem;
-	font-size: 1.5rem;
-	color: black;
-}
-#overlay .header .close { float: right; cursor: pointer; font-family: "Nimbus Roman No9 L", Times, serif;}
-#overlay .header .title { float: left margin-left: 1rem;}
-
-#overlay .content {
-	position: absolute;
-	top: 2.5rem; left: 0;
-	bottom: 0; right: 0;
-  padding: 2rem;
-	background: #ccc;
-	overflow: hidden;
-	overflow-y: auto;
-	display: inline-block;
-	border-radius: 1rem;
-	z-index: +1;
+img{
+  width: 100%;
+  border-radius: 2rem;
 }
 
+
+/* MARQUEE NAVIGATION BAR */
 .nav-bars{
   position: fixed;
   width: 100%;
   height: 2rem;
   z-index: 99999;
+
   background-color: black;
   color: white;
+
   font-family: "Nimbus Roman No9 L", Times, serif;
-  justify-content: center;
   font-size: 1.3rem;
   border-radius: 1rem;
 }
-.bar-duplicates{
-  position: relative;
+	.bar-duplicates{
+	  /* position: fixed; */
+	  width: 100%;
+	  height: 2rem;
+	  z-index: 99999;
+	}
+	.bar-top{
+	  top:0;
+	}
+	.bar-bottom{
+	  bottom:0;
+	}
+
+.track {
+	height: 100%;
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 52s linear infinite;
+	display: flex;
+	align-items: center;
+}
+	.track p{
+		font-family: "Nimbus Roman No9 L", Times, serif !important;
+		font-size: 1.3rem !important;
+		margin-top: -3px; /* only to make small adjustment if the font used doesnt have good leading. if the font is good alr, comment this out */
+	}
+
+.marquee {
   width: 100%;
-  height: 2rem;
-  z-index: 99999;
-  /* background-color: black; */
-  color: white;
-  font-family: sans-serif;
-  /* text-align: center; */
-  font-size: 1.6rem;
-}
-.bar-top{
-  top:0;
-}
-.bar-bottom{
-  bottom:0;
-}
-.main-container{
-  width: 100%;
-  background: red;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-.rows{
-  height: 30vh;
-  /* background: blue; */
-  /* margin-bottom: 1rem; */
-  overflow: hidden;ßß
-  white-space: nowrap;
-  vertical-align:text-bottom;
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
+
+
+
+
+/* IMAGE GRID */
+.imageGrid{
+	will-change: filter;
+}
+	.imageGrid img {
+		width: calc(100% / 4);
+		height: calc(.75 * 100vw / 4);
+		margin-bottom: -5px;
+		object-fit: cover;
+			border: 1px solid black;
+			border-radius: 1rem;
+			filter: grayscale(100%);
+	}
 
 .imgs{
   height: 100%;
@@ -116,104 +134,134 @@ body.no-scroll { overflow: hidden }
   margin: 0;
   padding: 0;
   float: left;
+
+	background-image: url("");
+	background-size: cover;
+	background-position: center;
 }
 
-img{
-  width: 100%;
-  border-radius: 2rem;
-}
 
-.imgs{
-    background-image: url("");
-    background-size: cover;
-    background-position: center;
-}
-
-.marquee {
-  width: 100vw;
-  max-width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-.track {
-  position: absolute;
-  white-space: nowrap;
-  will-change: transform;
-  animation: marquee 52s linear infinite;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-body:before {
+/* POP-UP BOX CONTAINER*/
+#overlay {
 	position: fixed;
+	top: 50%; left: 50%;
+	width: 80%;
+	height: 85%;
+	transform: translate(-50%,-50%);
+	display: none;
+	z-index: +1;
+}
+
+	#overlay:before {
+		position: fixed;
+		top: 50%; left: 50%;
+		width: 100vw;
+		height: 100vh;
+		content: '';
+		transform: translate(-50%,-50%);
+		background: rgba(255,0,0,0.65);
+	}
+
+#overlay .header {
+	position: absolute;
 	top: 0; left: 0; right: 0;
-	height: 1rem;
-	content: '';
-	background: red;
-	z-index: +2;
-}
-body:after {
-	position: fixed;
-	bottom: 0; left: 0; right: 0;
-	height: 1rem;
-	content: '';
-	background: red;
-	z-index: +2;
+/* 	height: 2rem; */
+	padding: 1rem 1rem;
+	font-size: 1.5rem;
+	color: black;
+	background: #ccc;
+	border-radius: 1rem 1rem 0 0;
 }
 
-p {
-	font-family: "Nimbus Sans L", Helvetica, sans-serif;
-	margin-bottom: 2rem;
-	letter-spacing: -0.1rem;
-	font-size: 2.5rem;
+#overlay .content {
+	position: relative;
+	top: calc(3rem - 4px); left: 0;
+	/* bottom: calc(3rem - 4px) */; right: 0;
+	width: 100%;
+	max-height: calc(100% - 2 * (3rem - 4px));
+	padding: 2rem;
+	background: #ccc;
+	overflow: hidden;
+	overflow-y: auto;
+	display: inline-block;
+/* 	border-radius: 1rem; */
+	z-index: +1;
+}
+#overlay .navigation {
+	position: relative;
+	top: 2.25rem;
+	width: 100%;
+	padding: 2rem 2rem;
+	font-size: 1.5rem;
+	color: black;
+	background: #ccc;
+	border-radius: 0 0 1rem 1rem;
+}
+#overlay .navigation:after {
+clear: both;
+	content: '';
+	display: block;
 }
 
+#overlay p{
+		font-family: "Nimbus Sans L", Helvetica, sans-serif;
+		margin-bottom: 2rem;
+		letter-spacing: -0.1rem;
+		font-size: 2.5rem;
+}
+
+#overlay .header .title { float: left; margin-left: 1rem;}
+#overlay .header .close { float: right; cursor: pointer; font-family: "Nimbus Roman No9 L", Times, serif;}
+
+
+
+
+/* POP-UP BOX CONTENT*/
 .content {
 	justify-content: center;
 }
 
 .index {
-	font-family: "Nimbus Roman No9 L", Times, serif;
+position: absolute;
+left: 50%;
+transform: translateX( -50%);
+	font-family: "Nimbus Roman No9 L Regular", Times, serif;
 	color: red;
 	letter-spacing: -0.1rem;
 	font-size: 2rem;
-	display: flex;
-	flex-direction: column-reverse;
-	align-items: center;
 }
 
 .prev {
-	font-family: "Nimbus Roman No9 L", Times, serif;
+	font-family: "Nimbus Roman No9 L Regular", Times, serif;
 	letter-spacing: -0.05rem;
 	font-size: 2rem;
 	float: left;
 }
 
 .next {
-	font-family: "Nimbus Roman No9 L", Times, serif;
+	font-family: "Nimbus Roman No9 L Regular", Times, serif;
 	letter-spacing: -0.05rem;
 	font-size: 2rem;
 	float: right;
 }
 
 .title {
-	font-family: "Nimbus Roman No9 L", Times, serif;
+	font-family: "Nimbus Roman No9 L Regular", Times, serif;
 	letter-spacing: -0.05rem;
 	font-size: 2rem;
 	margin-left: 1rem;
 }
 
 .close {
-	font-family: "Nimbus Roman No9 L", Times, serif;
+	font-family: "Nimbus Roman No9 L Regular", Times, serif;
 	font-size: 2rem;
 	margin-right: 1rem;
 }
 
 
+
+
+/* HELPER CLASSES */
 ::-webkit-scrollbar {
   width: 11px;
 }
