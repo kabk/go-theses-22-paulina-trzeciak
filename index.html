@@ -85,7 +85,7 @@
 
   		}
 
-  		@media screen and (max-width: 600px) {
+  		@media screen and (max-width: 1040px) {
   			.imageGrid img {
   				width: calc(100% / 2);
   				height: calc(.75 * 100vw / 2);
@@ -149,6 +149,72 @@
         	background: #ccc;
         	border-radius: 0 0 1rem 1rem;
         }
+
+        @media screen and (max-width: 600px) {
+  			.imageGrid img {
+  				width: calc(100% / 2);
+  				height: calc(.75 * 100vw / 2);
+  			}
+
+        #overlay p {
+        		font-family: "Nimbus Sans L", Helvetica, sans-serif;
+        		margin-bottom: 2rem;
+        		letter-spacing: normal;
+        		font-size: 1.25rem;
+            font-weight: 500;
+            word-spacing: -0.1rem;
+        }
+
+        .index {
+        position: absolute;
+        left: 50%;
+        transform: translateX( -50%);
+        font-family: "Nimbus Roman No9 L Regular", Times, serif;
+        color: red;
+        letter-spacing: normal;
+        font-size: 1.25rem;
+
+        }
+
+        .prev {
+        	font-family: "Nimbus Roman No9 L Regular", Times, serif;
+        	letter-spacing: normal;
+        	font-size: 1.25rem;
+        	float: left;
+        }
+
+        .next {
+        	font-family: "Nimbus Roman No9 L Regular", Times, serif;
+        	letter-spacing: normal;
+        	font-size: 1.25rem;
+        	float: right;
+        }
+
+        .title {
+        	font-family: "Nimbus Roman No9 L Regular", Times, serif;
+        	letter-spacing: normal;
+        	font-size: 1.25rem;
+        	margin-left: 1rem;
+        }
+
+        .close {
+        	font-family: "Nimbus Roman No9 L Regular", Times, serif;
+        	font-size: 1.25rem;
+        	margin-right: 1rem;
+          letter-spacing: normal;
+        }
+
+        #overlay .navigation {
+        	position: relative;
+        	top: 2.25rem;
+        	width: 100%;
+        	padding: 1rem 2rem;
+        	font-size: 1.5rem;
+        	color: black;
+        	background: #ccc;
+        	border-radius: 0 0 1rem 1rem;
+        }
+
 
   		}
   	</style>
