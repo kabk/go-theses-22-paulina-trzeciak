@@ -62,7 +62,7 @@ img{
   height: 2rem;
   z-index: 99999;
 	background-color: black;
-  color: white;
+  color: #ccc;
   font-family: "Nimbus Roman No9 L", Times, serif;
   font-size: 1.3rem;
   border-radius: 1rem;
@@ -257,6 +257,20 @@ transform: translateX( -50%);
 	font-family: "Nimbus Roman No9 L Regular", Times, serif;
 	font-size: 2rem;
 	margin-right: 1rem;
+}
+
+.info {
+	margin: 0;
+	font-family: "Nimbus Sans L", Helvetica, sans-serif;
+	letter-spacing: -0.1rem;
+	font-size: 2.5rem;
+	color: #ccc;
+	width: 100%;
+	align-content: center;
+}
+
+.info p {
+	text-align: center;
 }
 
 
